@@ -1,0 +1,40 @@
+/_:openbox_config/_:keyboard/_:keybind[
+    @key='C-A-Left' or
+    @key='C-A-Right' or
+    @key='C-A-Up' or
+    @key='C-A-Down' or
+    @key='C-S-A-Left' or
+    @key='C-S-A-Right' or
+    @key='C-S-A-Up' or
+    @key='C-S-A-Down' or
+    @key='A-Escape' or
+    @key='A-S-Right' or
+    @key='A-S-Left' or
+    @key='A-S-Up' or
+    @key='A-S-Down'
+] |
+/_:openbox_config/_:mouse/_:context[@name='Frame']/_:mousebind[
+    @button='A-Left' or
+    @button='A-Right' or
+    @button='A-Middle' or
+    @button='A-Up' or
+    @button='A-Down' or
+    @button='C-A-Up' or
+    @button='C-A-Down' or
+    @button='A-S-Up' or
+    @button='A-S-Down'
+] |
+/_:openbox_config/_:mouse/_:context[@name='Desktop']/_:mousebind[
+    @button='Up' or
+    @button='Down' or
+    @button='A-Up' or
+    @button='A-Down' or
+    @button='C-A-Up' or
+    @button='C-A-Down'
+] |
+/_:openbox_config/_:mouse/_:context[@name='MoveResize']/_:mousebind[
+    @button='Up' or
+    @button='Down' or
+    @button='A-Up' or
+    @button='A-Down'
+]

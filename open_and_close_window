@@ -1,0 +1,10 @@
+#!/bin/bash
+
+../apt_install_if_not xdotool
+
+$1 &
+for k in "${@:2}"; do
+  sleep 2
+  xdotool key $k
+done
+sleep 2

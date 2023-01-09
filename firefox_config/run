@@ -1,0 +1,12 @@
+#!/bin/bash
+
+../apt_install_if_not curl
+
+while read -r ext; do
+  name=$(echo "$ext" | cut -d' ' -f1)
+  id=$(echo "$ext" | cut -d' ' -f2)
+  curl -L -o $name.xpi addons.mozilla.org/firefox/downloads/latest/$name/addon-$id-latest.xpi
+done < addons_list
+
+firefox *.xpi "about:preferences"
+rm *.xpi

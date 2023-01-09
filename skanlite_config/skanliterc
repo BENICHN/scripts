@@ -1,0 +1,34 @@
+[General]
+DisableAutoSelection=false
+PreviewDPI=100
+SetPreviewDPI=false
+deviceModel=
+deviceName=brother4:net1;dev0
+deviceVendor=
+
+[Image Saving]
+ImgFormat=image/png
+ImgQuality=90
+Location=file:///home/benichn/pictures/scans
+NamePrefix=scan-
+NumberStartsFrom=2
+SaveMode=1
+SetQuality=false
+ShowBeforeSave=false
+
+[Options For brother4:net1;dev0]
+KSane::BatchMode=false
+KSane::BatchTimeDelay=10
+KSane::InvertColors=false
+KSane::PageSize=Personnalisée
+br-x=211.899994
+br-y=355.599991
+brightness=0.000000
+mode=Black & White
+resolution=600
+source=FlatBed
+tl-x=0.000000
+tl-y=0.000000
+
+[Window]
+Geometry=1291,565

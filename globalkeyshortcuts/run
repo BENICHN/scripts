@@ -1,0 +1,8 @@
+#!/bin/bash
+
+conf_path=~/.config/lxqt
+
+cp $conf_path/globalkeyshortcuts.conf $conf_path/globalkeyshortcuts.conf.bak
+awk -f globalkeyshortcuts.awk $conf_path/globalkeyshortcuts.conf > globalkeyshortcuts.conf
+cp globalkeyshortcuts.conf $conf_path
+rm globalkeyshortcuts.conf

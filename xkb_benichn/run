@@ -1,0 +1,26 @@
+#!/bin/bash
+
+xkb_path=/usr/share/X11/xkb
+lxqt_config_path=~/.config/lxqt
+
+sudo cp $xkb_path/symbols/us $xkb_path/symbols/us.bak
+cp $xkb_path/symbols/us us
+echo >> us
+cat us-benichn >> us
+sudo cp us $xkb_path/symbols
+rm us
+
+sudo cp $xkb_path/rules/evdev.xml $xkb_path/rules/evdev.xml.bak
+sudo xmlstarlet ed -L \
+  -s "/xkbConfigRegistry/layoutList/layout[configItem/name = 'us']/variantList" -t elem -n 'variant' \
+  -s '$prev' -t elem -n 'configItem' \
+  -s '$prev' -t elem -n 'name' -v 'BENICHN' \
+  -s '$prev/..' -t elem -n 'description' -v 'English (BENICHN)' \
+  $xkb_path/rules/evdev.xml
+
+cp $lxqt_config_path/session.conf $lxqt_config_path/session.conf.bak
+awk -f session.awk $lxqt_config_path/session.conf > session.conf
+echo >> session.conf
+cat session-benichn.conf >> session.conf
+cp session.conf $lxqt_config_path
+rm session.conf

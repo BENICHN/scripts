@@ -1,0 +1,12 @@
+#!/bin/bash
+
+conf_path=~/.config
+
+sudo apt autoremove -y qlipper
+sudo apt install -y copyq
+
+mkdir $conf_path/copyq
+cp copyq.conf $conf_path/copyq
+cp copyq-commands.ini $conf_path/copyq
+mkdir $conf_path/autostart
+cp copyq.desktop $conf_path/autostart

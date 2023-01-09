@@ -1,0 +1,7 @@
+#!/bin/bash
+
+conf_path=~/.config
+
+mkdir $(xdg-user-dir PICTURES)/scans
+cp $conf_path/skanliterc $conf_path/skanliterc.bak
+cp skanliterc $conf_path

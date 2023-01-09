@@ -1,0 +1,12 @@
+#!/bin/bash
+
+while [[ $(snap list --all) != "" ]]; do
+  # echo "Press [ENTER] to remove snap packages."
+  # read
+  for package in $(snap list --all | tail -n+2 | cut -d' ' -f1); do
+    sudo snap remove "$package"
+  done
+done
+sudo apt autopurge -y snapd
+sudo rm -rf /var/cache/snapd ~/snap
+sudo cp nosnap /etc/apt/preferences.d

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+cd
+
+mv Desktop desktop
+xdg-user-dirs-update --set DESKTOP ~/desktop
+
+mv Téléchargements downloads
+xdg-user-dirs-update --set DOWNLOAD ~/downloads
+
+rm Modèles
+xdg-user-dirs-update --set TEMPLATES ~
+
+rm Public
+xdg-user-dirs-update --set PUBLICSHARE ~
+
+mv Documents documents
+xdg-user-dirs-update --set DOCUMENTS ~/documents
+
+mv Musique music
+xdg-user-dirs-update --set MUSIC ~/music
+
+mv Images pictures
+xdg-user-dirs-update --set PICTURES ~/pictures
+
+mv Vidéos videos
+xdg-user-dirs-update --set VIDEOS ~/videos

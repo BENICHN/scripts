@@ -1,0 +1,8 @@
+#!/bin/bash
+
+../open_and_close_window xscreensaver-demo alt+F4
+
+cp ~/.xscreensaver ~/.xscreensaver.bak
+awk -f xscreensaver.awk ~/.xscreensaver > .xscreensaver
+cp .xscreensaver ~
+rm .xscreensaver

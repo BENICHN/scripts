@@ -1,0 +1,14 @@
+#!/bin/bash
+
+conf_path=~/.config/pcmanfm-qt/lxqt
+
+pcmanfm-qt --quit
+
+cp $conf_path/settings.conf $conf_path/settings.conf.bak
+awk -f pcmanfm.awk settings-benichn.conf $conf_path/settings.conf > settings.conf
+cp settings.conf $conf_path
+rm settings.conf
+
+rm -rf $(xdg-user-dir DESKTOP)/*
+
+bash -c "pcmanfm-qt --desktop --profile lxqt &"

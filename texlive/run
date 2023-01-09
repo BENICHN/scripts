@@ -1,0 +1,12 @@
+#!/bin/bash
+
+../apt_install_if_not curl
+
+curl -L 'https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz' | tar -xz
+echo "p" | install-tl-*/install-tl > /dev/null
+tlpath=$(< texlive.profile grep TEXDIR | cut -d' ' -f2)
+sudo install-tl-*/install-tl
+rm -rf install-tl-* texlive.profile
+
+echo >> ~/.profile
+echo "PATH=\"$tlpath/bin/x86_64-linux:\$PATH\"" >> ~/.profile

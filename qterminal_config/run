@@ -1,0 +1,15 @@
+#!/bin/bash
+
+ini_path=~/.config/qterminal.org
+
+program () {
+  killall qterminal
+  ../open_and_close_window qterminal alt+F4 Return
+  
+  cp $ini_path/qterminal.ini $ini_path/qterminal.ini.bak
+  awk -f qterminal.awk qterminal-benichn.ini $ini_path/qterminal.ini > qterminal.ini
+  cp qterminal.ini $ini_path
+  rm qterminal.ini
+}
+
+program &

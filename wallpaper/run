@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cp 2004-lubuntu-solid-humming.jpeg $(xdg-user-dir PICTURES)
+pcmanfm-qt -w $(xdg-user-dir PICTURES)/2004-lubuntu-solid-humming.jpeg --wallpaper-mode=tile

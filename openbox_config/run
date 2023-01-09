@@ -1,0 +1,34 @@
+#!/bin/bash
+
+../open_and_close_window obconf-qt alt+F4
+
+../apt_install_if_not xmlstarlet
+xml_path=~/.config/openbox
+theme_path="/usr/share/themes/Lubuntu Arc/openbox-3/"
+cp $xml_path/rc.xml $xml_path/rc.xml.bak
+
+xmlstarlet ed -L -d "$(cat shortcuts_to_remove.xpath)" $xml_path/rc.xml
+
+xmlstarlet ed -L \
+  -u "/_:openbox_config/_:theme/_:font[@place='ActiveWindow']/_:name" -v 'Ubuntu' \
+  -u "/_:openbox_config/_:theme/_:font[@place='ActiveWindow']/_:weight" -v 'normal' \
+  -u "/_:openbox_config/_:theme/_:font[@place='InactiveWindow']/_:name" -v 'Ubuntu' \
+  -u "/_:openbox_config/_:theme/_:font[@place='InactiveWindow']/_:weight" -v 'normal' \
+  $xml_path/rc.xml
+
+xmlstarlet ed -L \
+  -s "/_:openbox_config/_:keyboard" -t elem -n 'keybind' \
+  -i '$prev' -t attr -n 'key' -v 'W-Up' \
+  -s '$prev/..' -t elem -n 'action' \
+  -i '$prev' -t attr -n 'name' -v 'ToggleMaximize' \
+  \
+  -s "/_:openbox_config/_:keyboard" -t elem -n 'keybind' \
+  -i '$prev' -t attr -n 'key' -v 'W-Down' \
+  -s '$prev/..' -t elem -n 'action' \
+  -i '$prev' -t attr -n 'name' -v 'Iconify' \
+  $xml_path/rc.xml
+
+sudo cp "$theme_path"/themerc "$theme_path"/themerc.bak
+awk 'BEGIN { FS = ": " } { if ($1 == "border.width") { print $1 FS "1" } else print }' "$theme_path"/themerc > themerc
+sudo cp themerc "$theme_path"
+rm themerc

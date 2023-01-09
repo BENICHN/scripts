@@ -1,0 +1,33 @@
+#!/bin/bash
+
+chmod +x * */run
+
+run_script () {
+    pushd $1
+    echo "============================== Running $1 =============================="
+    ./run
+    popd
+}
+
+sudo apt update
+
+run_script basic_debs
+run_script other_debs
+run_script disable_snap
+run_script firefox_deb
+run_script firefox_config
+run_script solaar
+run_script copyq
+run_script git
+run_script texlive
+run_script vscode_config
+run_script remove_screensaver
+run_script xkb_benichn
+run_script wallpaper
+run_script pcmanfm_config
+run_script personal_folders
+run_script openbox_config
+run_script lxpanel_config
+run_script skanlite_config
+run_script globalkeyshortcuts
+run_script qterminal_config

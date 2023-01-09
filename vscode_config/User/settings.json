@@ -1,0 +1,13 @@
+{
+    "editor.selectionClipboard": false,
+    "security.workspace.trust.enabled": false,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "redhat.telemetry.enabled": false,
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.view.pdf.viewer": "external",
+    "latex-workshop.latex.build.forceRecipeUsage": false
+}

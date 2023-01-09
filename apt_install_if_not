@@ -1,0 +1,3 @@
+#!/bin/bash
+
+dpkg -s $1 || sudo apt install -y $1

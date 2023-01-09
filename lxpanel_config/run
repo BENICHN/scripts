@@ -1,0 +1,6 @@
+#!/bin/bash
+
+conf_path=~/.config/lxqt
+
+cp $conf_path/panel.conf $conf_path/panel.conf.bak
+cp panel.conf $conf_path
